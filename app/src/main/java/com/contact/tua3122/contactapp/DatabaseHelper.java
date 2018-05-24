@@ -20,7 +20,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NAME + " (" +
-                    ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME_CONTACT + " TEXT, " + COLUMN_NAME_PHONE + " TEXT, " + COLUMN_NAME_ADDRESS + " TEXT)";
+                    ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME_CONTACT + " TEXT, " +
+                    COLUMN_NAME_PHONE + " TEXT, " + COLUMN_NAME_ADDRESS + " TEXT)";
     public static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + TABLE_NAME;
 
