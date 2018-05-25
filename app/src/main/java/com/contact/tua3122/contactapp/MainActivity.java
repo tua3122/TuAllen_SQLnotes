@@ -1,5 +1,7 @@
 package com.contact.tua3122.contactapp;
 
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,5 +38,36 @@ public class MainActivity extends AppCompatActivity {
         else{
             Toast.makeText(MainActivity.this, "Failed - contact not inserted", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void viewData(View view){
+        Cursor res = myDb.getAllData();
+        Log.d("MyContactApp", "MainActivity: viewData: received cursor " + res.getCount());
+        if(res.getCount()==0){
+            showMessage("Error", "Database empty.");
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        while(res.moveToNext()){
+            buffer.append(res.getString(0) + " ");
+            buffer.append(res.getString(1) + " ");
+            buffer.append(res.getString(2) + " ");
+            buffer.append(res.getString(3) + "\n");
+        }
+        Log.d("MyContactApp", "MainActivity: viewData: assembled StringBuffer()");
+        showMessage("Data", buffer.toString());
+    }
+
+    public void showMessage(String title, String message) {
+        Log.d("MyContactApp", "MainActivity: showMessage: Building alert dialogue");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
+
+    public void clearData(View view){
+        myDb = new DatabaseHelper(this);
     }
 }

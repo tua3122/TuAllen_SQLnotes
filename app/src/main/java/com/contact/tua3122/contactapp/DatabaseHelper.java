@@ -2,9 +2,11 @@ package com.contact.tua3122.contactapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.view.View;
 
 import java.lang.annotation.Target;
 
@@ -48,7 +50,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean insertData(String name, String phone, String address){
         Log.d("MyContactApp", "DatabaseHelper: Inserting data");
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValue = new android.content.ContentValues();
+
+        ContentValues contentValue = new ContentValues();
         contentValue.put(COLUMN_NAME_CONTACT, name);
         contentValue.put(COLUMN_NAME_PHONE, phone);
         contentValue.put(COLUMN_NAME_ADDRESS, address);
@@ -64,4 +67,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
     }
+
+    public Cursor getAllData(){
+        Log.d("MyContactApp", "DatabaseHelper: calling getAllData()");
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
+        Log.d("MyContactApp", "DatabaseHelper: res initiated");
+        return res;
+    }
+
+
 }
