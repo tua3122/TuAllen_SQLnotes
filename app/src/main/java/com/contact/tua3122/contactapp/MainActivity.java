@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         while(res.moveToNext()){
-            buffer.append(res.getString(0) + " ");
-            buffer.append(res.getString(1) + " ");
-            buffer.append(res.getString(2) + " ");
+            buffer.append(res.getString(0) + ": ");
+            buffer.append(res.getString(1) + ", ");
+            buffer.append(res.getString(2) + ", ");
             buffer.append(res.getString(3) + "\n");
         }
         Log.d("MyContactApp", "MainActivity: viewData: assembled StringBuffer()");
