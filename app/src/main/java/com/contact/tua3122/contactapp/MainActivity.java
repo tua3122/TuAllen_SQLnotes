@@ -1,5 +1,6 @@
 package com.contact.tua3122.contactapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -67,7 +68,12 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    public void clearData(View view){
-        myDb = new DatabaseHelper(this);
+    public static final String EXTRA_MESSAGE = "com.contact.tua3122.contactapp_p1.MESSAGE";
+    public void searchRecord(View view) {
+        Log.d("MyContactApp", "MainActivity: Launching search activity");
+        Intent intent = new Intent(this, SearchActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, editName.getText().toString());
+        startActivity(intent);
+
     }
 }

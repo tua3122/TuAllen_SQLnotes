@@ -7,15 +7,15 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button_clear"
+        android:id="@+id/button_search"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="22dp"
         android:layout_marginTop="32dp"
         android:background="@color/colorPrimary"
-        android:onClick="clearData"
-        android:text="Clear"
+        android:onClick="searchRecord"
+        android:text="Search"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@+id/button_add"
         app:layout_constraintTop_toBottomOf="@+id/editText_address" />
@@ -105,7 +105,7 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="22dp"
         android:layout_marginTop="32dp"
         android:background="@color/colorPrimary"
         android:onClick="viewData"

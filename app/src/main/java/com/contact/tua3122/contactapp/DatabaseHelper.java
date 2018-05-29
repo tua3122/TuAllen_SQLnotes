@@ -75,5 +75,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d("MyContactApp", "DatabaseHelper: res initiated");
         return res;
     }
-    
+
 }
