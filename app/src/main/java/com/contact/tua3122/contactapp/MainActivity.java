@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor res = myDb.getAllData();
         Log.d("MyContactApp", "MainActivity: viewData: received cursor " + res.getCount());
         if(res.getCount()==0){
-            showMessage("Error", "Database empty.");
+            showMessage("Error", "No contacts.");
             return;
         }
 
