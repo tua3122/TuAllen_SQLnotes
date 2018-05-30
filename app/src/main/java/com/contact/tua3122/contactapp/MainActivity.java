@@ -2,6 +2,7 @@ package com.contact.tua3122.contactapp;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DatabaseErrorHandler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MyContactApp", "MainActivity: viewData: received cursor " + res.getCount());
         if(res.getCount()==0){
             showMessage("Error", "Database empty.");
+            return;
         }
 
         StringBuffer buffer = new StringBuffer();
@@ -76,4 +78,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void clearData(View view){
+        myDb.clearData();
+        showMessage("Success", "Cleared all contacts.");
+    }
+
 }

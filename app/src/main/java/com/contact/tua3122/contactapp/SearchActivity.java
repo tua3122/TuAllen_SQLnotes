@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -22,6 +23,7 @@ public class SearchActivity extends AppCompatActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         TextView textView = findViewById(R.id.textView_search);
+
         textView.setText(message);
         Log.d("MyContactApp", "SearchActivity: Set searched message");
 
@@ -58,7 +60,13 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void showMessage(String message) {
+        Log.d("MyContactApp", "SearchActivity: Building text dialog");
         TextView text = findViewById(R.id.results);
         text.setText(message);
+    }
+
+    public void onUpdate(View view){
+        TextView textView = findViewById(R.id.textView_search);
+        searchData(textView.getText().toString());
     }
 }

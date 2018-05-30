@@ -68,12 +68,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public Cursor getAllData(){
+    public Cursor getAllData() {
         Log.d("MyContactApp", "DatabaseHelper: calling getAllData()");
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
         Log.d("MyContactApp", "DatabaseHelper: res initiated");
         return res;
+    }
+
+    public void clearData(){
+        Log.d("MyContactApp", "DatabaseHelper: calling clearData()");
+        onUpgrade(super.getWritableDatabase(), DATABASE_VERSION, DATABASE_VERSION+1);
+        Log.d("MyContactApp", "DatabaseHelper: Upgraded database.");
+
+
     }
 
 }
