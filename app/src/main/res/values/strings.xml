@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ContactApp</string>
+    <string name="search">Search</string>
+    <string name="clear_contacts">Clear Contacts</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="name">Name</string>
+    <string name="add">Add</string>
+    <string name="view">View</string>
 </resources>

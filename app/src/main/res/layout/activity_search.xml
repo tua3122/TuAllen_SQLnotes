@@ -15,7 +15,7 @@
         android:layout_marginTop="8dp"
         android:background="@color/colorPrimary"
         android:onClick="onUpdate"
-        android:text="Search"
+        android:text="@string/search"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@+id/textView_search"
         app:layout_constraintTop_toTopOf="parent" />

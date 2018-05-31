@@ -38,10 +38,6 @@ public class SearchActivity extends AppCompatActivity {
         Cursor res = myDb.getAllData();
         Log.d("MyContactApp", "SearchActivity: Cursor Initiated");
 
-        if(res.getCount()==0){
-            return "No matches";
-        }
-
         StringBuffer buffer = new StringBuffer();
         while(res.moveToNext()){
             if(res.getString(1).indexOf(message)!=-1){
@@ -54,7 +50,6 @@ public class SearchActivity extends AppCompatActivity {
 
         showMessage(buffer.toString());
         Log.d("MyContactApp", "SearchActivity: Successfully compiled message");
-
         return buffer.toString();
 
     }
@@ -62,7 +57,13 @@ public class SearchActivity extends AppCompatActivity {
     public void showMessage(String message) {
         Log.d("MyContactApp", "SearchActivity: Building text dialog");
         TextView text = findViewById(R.id.results);
-        text.setText(message);
+        if(message.length()==0){
+            text.setText("No matches.");
+        }
+        else{
+            text.setText(message);
+        }
+
     }
 
     public void onUpdate(View view){
